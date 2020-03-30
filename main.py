@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # created by Kamran Akhenaton
 
 # Jumpy! (a platform game) - Part 2
@@ -76,3 +77,6 @@ while g.running:
     g.show_go_screen()
 
 pg.quit()
+=======
+# created by Kamran Akhenaton
+>>>>>>> 8b27bc7703924b002aa29b9e2f70743ec44e3854
