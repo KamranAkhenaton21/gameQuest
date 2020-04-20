@@ -1,4 +1,5 @@
-
+# created by Kamran Akhenaton
+# With help and code from Chris Cozort and KidsCanCode
 
 import pygame as pg
 from pygame.sprite import Group
