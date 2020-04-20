@@ -20,15 +20,15 @@ WIDTH = 480
 HEIGHT = 600
 FPS = 60
 
-# Environment options
-GRAVITY = 9.8
+# environment 
+GRAVITY = 10
 
-# Player properties
+# player attributes
 PLAYER_ACC = 0.5
 PLAYER_FRICTION = -0.01
 PLAYER_JUMPPOWER = 10
 
-# define colors
+# colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 255, 0)

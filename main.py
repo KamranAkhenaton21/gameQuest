@@ -9,7 +9,7 @@ from sprites import *
 
 class Game:
     def __init__(self):
-        # initialize game window, etc
+        # initialize game window
         pg.init()
         pg.mixer.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -17,33 +17,31 @@ class Game:
         self.clock = pg.time.Clock()
         self.running = True
 
+    # function to starts/restarts a new game
     def new(self):
-        # start a new game
         self.all_sprites = Group()
         self.platforms = pg.sprite.Group()
         self.player = Player(self)
         self.all_sprites.add(self.player)
+        # gives platforms a position
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
         plat1 = Platform(300, 400, 150, 20)
         plat2 = Platform(150, 300, 150, 20)
-        # plat3 = Platform(150, 600, 150, 20)
         self.all_sprites.add(ground)
         self.platforms.add(ground)
         self.all_sprites.add(plat1)
         self.platforms.add(plat1)
         self.all_sprites.add(plat2)
         self.platforms.add(plat2)
-        # self.all_sprites.add(plat3)
-        # self.platforms.add(plat3)
-        # for plat in range(1,10):
-        #     plat = Platform(random.randint(0, WIDTH), random.randint(0, HEIGHT), 200, 20)
-        #     self.all_sprites.add(plat)
-        #     self.platforms.add(plat)
+        # randomly prints platforms of a random length 
+        for plat in range(1,10):
+            plat = Platform(random.randint(0, WIDTH), random.randint(0, HEIGHT), 200, 20)
+            self.all_sprites.add(plat)
+            self.platforms.add(plat)
         self.run()
 
-
+    # game loop 
     def run(self):
-        # Game Loop
         self.playing = True
         while self.playing:
             self.clock.tick(FPS)
@@ -52,7 +50,7 @@ class Game:
             self.draw()
 
     def update(self):
-        # Game Loop - Update
+        # updating game loop
         self.all_sprites.update()
         hits = pg.sprite.spritecollide(self.player, self.platforms, False)
         if hits:
@@ -69,7 +67,7 @@ class Game:
             
 
     def events(self):
-        # Game Loop - events
+    # event game loop
         for event in pg.event.get():
             # check for closing window
             if event.type == pg.QUIT:
@@ -78,18 +76,18 @@ class Game:
                 self.running = False
 
     def draw(self):
-        # Game Loop - draw
+        # game loop
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
         # *after* drawing everything, flip the display
         pg.display.flip()
 
     def show_start_screen(self):
-        # game splash/start screen
+        # staring the screen
         pass
 
     def show_go_screen(self):
-        # game over/continue
+        # game over
         pass
 
 g = Game()
